@@ -16,6 +16,7 @@ class LntkEntity{
     String description
     static mapping = {
         id generator: 'uuid'
+        tablePerHierarchy false 
     }
 
 }

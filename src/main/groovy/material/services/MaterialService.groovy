@@ -6,18 +6,22 @@ import grails.gorm.services.Service
 
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
-import org.springframework.transaction.annotation.Transactional;
+import grails.gorm.transactions.ReadOnly
 
+interface IMaterialService {
+    int count()
+    List<Material> findAll()
+    List<Material> findAllByPrice(double price)
+    Material find(@NotNull Long id)
+    Material save(Material material)
+}
 @Service(Material)
-abstract class MaterialService{
-    abstract int count()
-    //Material save(@NotBlank String title, @NotBlank String url)
-    abstract List<Material> findAll()
-    abstract List<Material> findAllByPrice(double price)
-    
-    @Transactional
-    List<Material> findAllByNameLike( String name) {
-        Material.findAllByName(name)
+abstract class MaterialService implements IMaterialService {
+    @ReadOnly
+    List<Material> findAllByNameLike( String nameParam) {
+        println(nameParam)
+        def a = Material.findAllByNameLike("%" + nameParam + "%")
+        println(a)
+        a
     }
-    abstract Material find(@NotNull Long id)
 }

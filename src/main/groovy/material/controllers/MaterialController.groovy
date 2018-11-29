@@ -31,8 +31,8 @@ class MaterialController implements MaterialApi {
     }
     
     @Post("/")
-    Material save(Material Material) {
-        //return MaterialService.save(Material.title, Material.url)
+    Material save(Material material) {
+        return MaterialService.save(material)
     }
     
     @Get('/byName/{name}')

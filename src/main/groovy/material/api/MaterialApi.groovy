@@ -11,6 +11,6 @@ interface MaterialApi {
     @Get("/{id}")
     Material show(Long id)
     
-    /*@Post("/")
-    Material save(Material material)*/
+    @Post("/")
+    Material save(Material material)
 }
