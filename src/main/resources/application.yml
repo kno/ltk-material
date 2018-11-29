@@ -1,0 +1,10 @@
+micronaut:
+    application:
+        name: material
+dataSource:
+    dbCreate: update
+    url: "jdbc:mysql://localhost/c9"
+    username: "linsms"
+    password: ""
+    driverClassName: "com.mysql.jdbc.Driver"
+    
